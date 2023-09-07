@@ -1,0 +1,46 @@
+
+
+
+<h1>Chefs</h1>
+
+<div id="chefs">
+<table class="table table-success table-striped-columns">
+  <thead>
+   <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Telefono</th>
+    <th>Especialidad</th>
+    <th>Accion 1</th>
+    <th>Accion 2</th>
+    <th>Editar</th>
+  
+
+   </tr>
+ </thead>
+<% @chefs.each do |chef| %>
+
+<tbody> 
+   <tr>
+    <td><%= chef.name %></td>
+    <td><%= chef.email %></td>
+    <td><%= chef.phone %></td>
+    <td><%= chef.specialty %></td>
+    <td><%= link_to "Agregar Platos", new_dish_path, class: "btn btn-dark" %></td>
+    <td><%= link_to "Platos", dishes_path, class: "btn btn-dark" %></td>
+    <td><%= link_to "Editar", edit_chef_path(chef), class: "btn btn-dark" %></td>
+  
+   </tr>
+  </tbody>
+  <% end %>
+  </table>
+</div>
+
+
+<div class="digg_pagination">
+            <%= will_paginate(@chef, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+ </div>
+
+
+
+<%= link_to "New chef", new_chef_path %>

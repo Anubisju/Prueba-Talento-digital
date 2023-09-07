@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1>Platos</h1>
+
+<div id="dish">
+<table class="table table-success table-striped-columns">
+  <thead>
+   <tr>
+    <th>Name</th>
+    <th>Precio</th>
+    <th>Descripciòn</th>
+    <th>Editar</th>
+    
+   </tr>
+ </thead>
+<% @dishes.each do |dish| %>
+<tbody> 
+   <tr>
+    <td><%= dish.name %></td>
+    <td><%= dish.price %></td>
+    <td><%= dish.description %></td>
+    <td><%= link_to "Editar", edit_dish_path(dish), class: "btn btn-dark" %></td>
+        
+   </tr>
+  </tbody>
+  <% end %>
+  </table>
+</div>
+
+
+<%= link_to "New dish", new_dish_path %>
